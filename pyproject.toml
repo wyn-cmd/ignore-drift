@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ignore-drift"
+version = "0.1.0"
+description = "Report tracked files that .gitignore rules say should not be tracked."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "wyn-cmd" }]
+keywords = ["git", "gitignore", "repository-hygiene", "secrets", "cli"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Environment :: Console",
+    "Topic :: Software Development :: Version Control :: Git",
+]
+
+[project.scripts]
+ignore-drift = "ignoredrift.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/wyn-cmd/ignore-drift"
+
+[tool.setuptools]
+packages = ["ignoredrift"]
