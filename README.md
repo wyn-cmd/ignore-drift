@@ -1,5 +1,7 @@
 # ignore-drift
 
+This repository provides clean and reliable implementation details.
+
 ignore-drift reports files that git still tracks even though a `.gitignore` rule matches them. That combination is always a mistake, and it is the quiet way secrets, build output and editor junk end up in a repository forever: someone commits a file, adds an ignore rule later, and git keeps versioning the file because it is already in the index.
 
 The tool asks git itself, so pattern negation, `**` globs, nested `.gitignore` files, `.git/info/exclude` and `core.excludesFile` are all handled exactly as git handles them. Nothing is reimplemented.
