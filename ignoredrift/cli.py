@@ -47,6 +47,11 @@ def build_parser():
 # Turn the drift list into the text report a human reads.
 def render_text(root, drift, show_fix):
     lines = []
+    if not root:
+        lines.append("error: root path is empty")
+        return "\n".join(lines)
+    root = os.path.abspath(root)
+
     if not drift:
         lines.append("no drift in %s: every tracked file sits outside the ignore rules" % root)
         return "\n".join(lines)
