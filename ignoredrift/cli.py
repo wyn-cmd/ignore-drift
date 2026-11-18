@@ -47,6 +47,9 @@ def build_parser():
 # Turn the drift list into the text report a human reads.
 def render_text(root, drift, show_fix):
     lines = []
+    if not isinstance(root, str):
+        lines.append("error: root path must be a string")
+        return "\n".join(lines)
     if not root:
         lines.append("error: root path is empty")
         return "\n".join(lines)
