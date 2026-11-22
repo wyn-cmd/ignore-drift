@@ -86,6 +86,10 @@ def main(argv=None):
     try:
         root = repo_root(os.path.abspath(args.path))
         drift = find_drift(root)
+    except OSError as exc:
+        # report path access failures and exit with three
+        sys.stderr.write("ignore-drift: %s\n" % exc)
+        return 3
     except GitError as exc:
         sys.stderr.write("ignore-drift: %s\n" % exc)
         return 2
